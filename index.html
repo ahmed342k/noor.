@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>noor.com - تحويل الصور</title>
+  <meta name="description" content="موقع بسيط وأنيق لتحويل الصور إلى صيغ مختلفة مثل PNG و JPG و WEBP و PDF.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-light">
+  <div class="background-glow"></div>
+
+  <main class="page-shell">
+    <section class="app-card">
+      <header class="topbar">
+        <h1 class="logo"><span>noor</span>.com</h1>
+
+        <div class="topbar-controls">
+          <button id="themeToggle" class="theme-toggle light" type="button" aria-label="تبديل الوضع الليلي والنهاري" aria-pressed="false">
+            <span class="toggle-track">
+              <span class="toggle-icon sun">☀</span>
+              <span class="toggle-icon moon">☾</span>
+              <span class="toggle-thumb"></span>
+            </span>
+          </button>
+
+          <div class="select-wrap language-wrap">
+            <select id="languageSelect" aria-label="اختيار اللغة">
+              <option value="ar" selected>العربية</option>
+              <option value="en">English</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-grid">
+        <div class="panel">
+          <label class="panel-label" id="uploadLabel" for="imageInput">الصورة المختارة</label>
+          <label class="upload-box" for="imageInput" id="uploadBox">
+            <input type="file" id="imageInput" accept="image/*" hidden>
+            <div class="upload-inner">
+              <span class="upload-icon">⇪</span>
+              <strong id="uploadTitle">اختر صورة من جهازك</strong>
+              <small id="uploadHint">PNG, JPG, WEBP</small>
+            </div>
+          </label>
+          <div class="file-name" id="fileName">لم يتم اختيار صورة بعد</div>
+        </div>
+
+        <div class="panel">
+          <label class="panel-label" id="formatLabel" for="formatSelect">الصيغة المطلوبة</label>
+          <div class="select-wrap">
+            <select id="formatSelect" aria-label="الصيغة المطلوبة">
+              <option value="png">PNG</option>
+              <option value="jpg">JPG</option>
+              <option value="webp">WEBP</option>
+              <option value="pdf">PDF</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-label" id="statusLabel">الحالة</div>
+          <p class="status-text" id="status">اختر صورة وحدد الصيغة المطلوبة.</p>
+        </div>
+
+        <div class="panel result-panel">
+          <div class="panel-label" id="downloadLabel">الملف المحول</div>
+          <a id="downloadBtn" class="download-btn disabled" href="#" download>
+            <span id="downloadBtnText">تحميل الملف المحول</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <a href="#" id="aboutLink">من نحن</a>
+      <span>-</span>
+      <a href="#" id="privacyLink">سياسة الخصوصية</a>
+      <span>-</span>
+      <a href="#" id="contactLink">اتصل بنا</a>
+    </footer>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h2 id="modalTitle">عنوان</h2>
+        <button type="button" class="close-btn" id="closeModal" aria-label="إغلاق">×</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
